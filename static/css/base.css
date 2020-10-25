@@ -1,0 +1,29 @@
+#base_body{
+    background-color: red; /* For browsers that do not support gradients */
+    background-image: linear-gradient(to bottom right, white, black);
+    overflow-x: hidden; /* no horizontal scrolling */
+}
+
+#detail_body{
+    background-image: linear-gradient(to right, white, gray);
+}
+
+#main-content{
+    display: grid; grid-row-gap:50px; padding-left:7%
+}
+
+.detail_content{
+    padding-left: 10%;
+    padding-right: 10%;
+    
+}
+
+#detail-img{
+    width: 50%;
+    height: 150px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+
+

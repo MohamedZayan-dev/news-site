@@ -1,0 +1,31 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <a class="navbar-brand" href="{% url 'home' %}">
+        <img src="{% static '/images/news.png' %}">
+    </a>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'base_page' page='health' %}">Health</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'base_page' page='sport' %}">Sports</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'base_page' page='economy' %}">Economy</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'base_page' page='politics' %}">Politics</a>
+          </li>
+        </ul>
+        <form action="" method="POST" class="form-inline my-2 my-lg-0">
+          {% csrf_token %}
+          <input name="search" class="form-control mr-sm-2" type="search" placeholder="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+</nav>
+

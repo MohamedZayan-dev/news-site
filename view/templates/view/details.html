@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+<body id="detail_body">
+    <div class="detail_content">
+        <h2>{{webTitle}}</h2>
+        <h5>{{webPublicationDate}}</h5>
+        <img id="detail_img" src="{{thumbnail}}">
+        <p>{{bodyText}}</p>
+    </div>
+</body>
+</html>

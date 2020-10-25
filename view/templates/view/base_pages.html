@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{page}} News</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+<!-- if api returns data -->
+{% if data %}
+<header class="sticky-top">
+    {% include 'view/navbar.html' %}
+</header>
+<body id = "base_body">
+    <br><br>
+    <div id="main-content">
+      
+        {% for element in data%}
+        {% if forloop.first %}<div class="row">{% endif %}
+        <div class="col-4">
+        
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{{element.thumbnail}}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{element.sectionName}}</h5>
+              <p class="card-text">{{element.title}}</p>
+              <a href="{% url 'details' element.id %}" class="btn btn-primary">View more</a>
+            </div>
+          </div>
+        
+        </div>
+        {% if forloop.counter|divisibleby:3 %}</div><div class="row">{% endif %}
+            {% if forloop.last %}</div>{% endif %}
+          {% endfor %}
+        </div>
+      <!-- no data returned by api -->
+      {% else %}
+        <h3>No Data found. Please try another keyword in the search field</h3>
+      {% endif %}
+        <br>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>
